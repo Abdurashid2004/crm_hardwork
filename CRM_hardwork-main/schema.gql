@@ -1,0 +1,121 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+input CreateLidDto {
+  first_name: String!
+}
+
+input CreateLidStatusDto {
+  status: String!
+}
+
+input CreatePaymentDto {
+  is_paid: Boolean!
+  payment_date: DateTime!
+  payment_last_date: DateTime!
+  price: Float!
+  student_id: Float!
+  total_payment: Float!
+}
+
+input CreateReasonLidDto {
+  reason_lid: String!
+}
+
+input CreateTargetDto {
+  name: String!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type Lid {
+  first_name: String!
+  id: ID!
+  lid_status_id: LidStatus!
+}
+
+type LidStatus {
+  id: ID!
+  lidStatus: [Lid!]!
+  status: String!
+}
+
+type Mutation {
+  createLid(createLidDto: CreateLidDto!): Lid!
+  createLidStatus(createLidStatusDto: CreateLidStatusDto!): LidStatus!
+  createPayment(createPaymentDto: CreatePaymentDto!): Payment!
+  createReasonLid(createReasonLidDto: CreateReasonLidDto!): ReasonLid!
+  createTarget(createTargetDto: CreateTargetDto!): Target!
+  removeLid(id: String!): Lid!
+  removeLidStatus(id: ID!): ID!
+  removePayment(id: String!): Payment!
+  removeReasonLid(id: String!): ReasonLid!
+  removeTarget(id: String!): Target!
+  updateLid(id: String!, updateLidDto: UpdateLidDto!): Lid!
+  updateLidStatus(id: ID!, updateLidStatus: UpdateLidStatusDto!): LidStatus!
+  updatePayment(id: String!, updatePaymentDto: UpdatePaymentDto!): Payment!
+  updateReasonLid(id: String!, updateReasonLidDto: UpdateReasonLidDto!): ReasonLid!
+  updateTarget(id: String!, updateTargetDto: UpdateTargetDto!): Target!
+}
+
+type Payment {
+  id: ID!
+  is_paid: Boolean!
+  payment_date: DateTime!
+  payment_last_date: DateTime!
+  price: Float!
+  total_payment: Float!
+}
+
+type Query {
+  findAllLIdStatus: [LidStatus!]!
+  findOneLidStatus(id: Float!): LidStatus!
+  lid(id: String!): Lid!
+  lids: [Lid!]!
+  payment(id: String!): Payment!
+  payments: [Payment!]!
+  reasonLid(id: String!): ReasonLid!
+  reasonLids: [ReasonLid!]!
+  target(id: String!): Target!
+  targets: [Target!]!
+}
+
+type ReasonLid {
+  id: ID!
+  reason_lid: String!
+}
+
+type Target {
+  id: ID!
+  lids: [Lid!]
+  name: String!
+}
+
+input UpdateLidDto {
+  first_name: String!
+}
+
+input UpdateLidStatusDto {
+  status: String!
+}
+
+input UpdatePaymentDto {
+  is_paid: Boolean!
+  payment_date: DateTime!
+  payment_last_date: DateTime!
+  price: Float!
+  student_id: Float!
+  total_payment: Float!
+}
+
+input UpdateReasonLidDto {
+  reason_lid: String!
+}
+
+input UpdateTargetDto {
+  name: String
+}
